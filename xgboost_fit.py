@@ -127,10 +127,6 @@ def prepare_data(set_number, perform_regression, objective, include_val=True, re
             df['target'] = df['one_month_lookahead_vol'] > Hist_vol
         if objective == 2:
             df['target'] = df['one_month_lookahead_vol'] > df['median_volatility']
-        if objective == 3:
-            df['target'] = df['one_month_lookahead_vol'] > df['ATM_ahead']
-        if objective == 4:
-            df['target'] = df['one_month_lookahead_vol'] > 0.75*df['ATM_ahead']
 
         df = df.drop(columns=['one_month_lookahead_vol', 'ATM_ahead', 'median_volatility'])
 
